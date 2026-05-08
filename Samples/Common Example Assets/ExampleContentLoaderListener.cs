@@ -1,6 +1,5 @@
 namespace rlmg.Tools.ContentLoading.Examples
 {
-    using System.Net;
     using TMPro;
     using UnityEngine;
     using UnityEngine.Networking;
@@ -13,13 +12,14 @@ namespace rlmg.Tools.ContentLoading.Examples
         /// <summary>
         /// Any ContentLoader in the scene
         /// </summary>
-        ContentLoader contentLoader;
+        [SerializeField] ContentLoader contentLoader;
 
-        [SerializeField] TMP_Text heading, body;
+        [SerializeField] protected TMP_Text heading, body;
 
         private void Awake()
         {
-            contentLoader = FindAnyObjectByType<ContentLoader>();
+            if (contentLoader == null)
+                contentLoader = FindAnyObjectByType<ContentLoader>();
         }
 
         private void OnEnable()
@@ -42,10 +42,10 @@ namespace rlmg.Tools.ContentLoading.Examples
             body.text = "";
         }
 
-        private void OnLoadSucceeded(UnityWebRequest request)
+        protected virtual void OnLoadSucceeded(UnityWebRequest request)
         {
             heading.text = "Loaded successfully!";
-            body.text = contentLoader.PrettifyJson( request.downloadHandler.text );
+            body.text = ContentCacher.PrettifyJson( request.downloadHandler.text );
         }
             
         private void OnLoadFailed(UnityWebRequest request)

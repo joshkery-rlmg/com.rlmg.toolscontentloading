@@ -16,7 +16,7 @@ namespace rlmg.Tools.ContentLoading.Examples
 
         /// <summary>
         /// The base method does nothing.
-        /// Thie override gives you the possibility to use the data.
+        /// The override gives you the possibility to use the data.
         /// </summary>
         /// <param name="webRequest"></param>
         /// <returns></returns>

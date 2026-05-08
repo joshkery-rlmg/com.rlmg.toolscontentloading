@@ -36,7 +36,7 @@ namespace rlmg.Tools.ContentLoading.Examples
 
         private void OnLoadSucceeded(UnityWebRequest request)
         {
-            InstantiateContentItems(contentLoader.Data.pokemonspecies);
+            InstantiateContentItems(contentLoader.Data);
         }
 
         public void ClearAllItems()

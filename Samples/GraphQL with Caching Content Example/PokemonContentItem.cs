@@ -4,13 +4,22 @@ namespace rlmg.Tools.ContentLoading.Examples
     using UnityEngine;
 
     /// <summary>
-    /// Represents a serializable container for Pokémon data.
+    /// Represents a serializable container for Pokémon data from GraphQL response.
     /// </summary>
     /// <remarks>To use with JsonUtility, classes like this must be explicitly marked Serializable.</remarks>
     [Serializable]
-    public class PokemonDataWrapper
+    public class PokemonGraphDataWrapper
     {
         public PokemonData data;
+    }
+
+    /// <summary>
+    /// Represents a serializable container for Pokémon data from REST GET response.
+    /// </summary>
+    [Serializable]
+    public class PokemonRESTDataWrapper
+    {
+        public PokemonSpecies[] results;
     }
 
     /// <summary>
@@ -39,6 +48,11 @@ namespace rlmg.Tools.ContentLoading.Examples
         /// Name of Pokémon. 
         /// </summary>
         public string name;
+
+        /// <summary>
+        /// API endpoint for this Pokémon species.
+        /// </summary>
+        public string url;
 
         /// <summary>
         /// Flavor texts for the Pokémon.
